@@ -1,6 +1,6 @@
-# Yennam Swapna – Portfolio
+# Swapna Bhoopathi – Portfolio
 
-Personal portfolio of **Yennam Swapna**, Data Analyst / Software Developer.
+Personal portfolio of **Swapna Bhoopathi**, Data Analyst / Software Developer.
 
 **Live site:** https://yennamswapna.github.io
 
