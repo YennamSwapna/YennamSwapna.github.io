@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yennam Swapna</title>
+<meta name="description" content="Yennam Swapna - Data Analyst / Software Developer. AI-assisted development with Claude Code, data analytics, Oracle and application development.">
+<script>
+  document.documentElement.classList.add('js');
+  try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<style>
+  :root {
+    --bg: #ffffff; --bg-alt: #eef1f4; --card: #ffffff; --text: #222831; --muted: #5b6573;
+    --primary: #1f3a5f; --accent: #4a6a8f; --chip: #e3e9f0; --border: #d6dde5;
+    --shadow: 0 1px 3px rgba(31,58,95,.08), 0 6px 18px rgba(31,58,95,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1722; --bg-alt: #16212f; --card: #1a2635; --text: #e6ebf1; --muted: #a3afbd;
+      --primary: #9cc0ea; --accent: #7fa6d3; --chip: #24364b; --border: #2a3a4e;
+      --shadow: 0 1px 3px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1722; --bg-alt: #16212f; --card: #1a2635; --text: #e6ebf1; --muted: #a3afbd;
+    --primary: #9cc0ea; --accent: #7fa6d3; --chip: #24364b; --border: #2a3a4e;
+    --shadow: 0 1px 3px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.25);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+  body { font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; background: var(--bg);
+         color: var(--text); line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  section { padding: 72px 0; }
+  section.alt { background: var(--bg-alt); }
+  h2 { font-size: 1.75rem; color: var(--primary); margin-bottom: 8px; }
+  .lead { color: var(--muted); margin-bottom: 32px; max-width: 640px; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; gap: 16px; height: 60px; }
+  .mark { font-weight: 700; color: var(--primary); text-decoration: none; font-size: 1.15rem; letter-spacing: .5px; flex-shrink: 0; }
+  .links { display: flex; gap: 20px; margin-left: auto; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  .links::-webkit-scrollbar { display: none; }
+  .links a { color: var(--muted); text-decoration: none; font-size: .92rem; white-space: nowrap; }
+  .links a:hover { color: var(--primary); }
+  .toggle { background: var(--chip); border: 1px solid var(--border); color: var(--text); width: 36px; height: 36px;
+            border-radius: 50%; cursor: pointer; font-size: 1rem; flex-shrink: 0; }
+
+  /* Hero */
+  .hero { padding: 88px 0 72px; }
+  .hero .wrap { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
+  .hero .wrap > * { min-width: 0; }
+  .avatar { width: 160px; height: 160px; border-radius: 50%; display: grid; place-items: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff;
+            font-size: 3.2rem; font-weight: 600; letter-spacing: 2px; box-shadow: var(--shadow); overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--primary); line-height: 1.1; }
+  .hero .role { font-size: 1.2rem; color: var(--accent); margin: 6px 0 14px; }
+  .hero p.pitch { color: var(--muted); max-width: 560px; margin-bottom: 24px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-block; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .95rem; }
+  .btn.primary { background: var(--primary); color: var(--bg); }
+  .btn.ghost { border: 1.5px solid var(--primary); color: var(--primary); }
+  .social { display: flex; gap: 8px; margin-left: 4px; }
+  .social a { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%;
+              border: 1px solid var(--border); color: var(--muted); }
+  .social a:hover { color: var(--primary); border-color: var(--primary); }
+  .social svg { width: 18px; height: 18px; fill: currentColor; }
+
+  /* About */
+  .about p { max-width: 760px; font-size: 1.05rem; }
+
+  /* Cards */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; box-shadow: var(--shadow); }
+  .card h3 { color: var(--primary); font-size: 1.05rem; margin-bottom: 6px; }
+  .card p, .card li { color: var(--muted); font-size: .95rem; }
+  .featured { border-left: 4px solid var(--accent); margin-bottom: 20px; }
+  .featured .tag { display: inline-block; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+                   color: var(--accent); margin-bottom: 4px; }
+  .featured h3 { font-size: 1.35rem; }
+  .ai-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+  .ai-item { background: var(--chip); border-radius: 10px; padding: 14px; }
+  .ai-item b { display: block; color: var(--primary); margin-bottom: 4px; }
+  .ai-item span { font-size: .88rem; color: var(--muted); }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chip { background: var(--chip); color: var(--text); font-size: .8rem; padding: 3px 10px; border-radius: 999px; }
+
+  /* Work */
+  .case .meta { font-size: .85rem; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+  .case h4 { font-size: .78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text); margin: 12px 0 4px; }
+  .case ul { padding-left: 18px; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 28px; }
+  .tl-item::before { content: ""; position: absolute; left: -28px; top: 6px; width: 16px; height: 16px; border-radius: 50%;
+                     background: var(--bg-alt); border: 3px solid var(--accent); }
+  .tl-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; }
+  .tl-head b { color: var(--primary); font-size: 1.05rem; }
+  .tl-date { color: var(--muted); font-size: .9rem; font-weight: 600; }
+  .tl-org { color: var(--accent); font-size: .92rem; margin-bottom: 6px; }
+  .tl-item ul { padding-left: 18px; color: var(--muted); font-size: .94rem; }
+  details { margin-top: 8px; }
+  summary { cursor: pointer; color: var(--primary); font-weight: 600; margin-bottom: 20px; }
+
+  /* Education */
+  .edu .card { padding: 18px; }
+  .edu .card span { color: var(--muted); font-size: .92rem; }
+
+  /* Contact */
+  .contact { text-align: center; }
+  .contact .lead { margin: 0 auto 24px; }
+  .contact .actions { justify-content: center; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 24px 0; border-top: 1px solid var(--border); }
+
+  /* Reveal */
+  .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .js .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  @media (max-width: 860px) { .ai-grid { grid-template-columns: repeat(2, 1fr); } .grid3 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 720px) {
+    section { padding: 52px 0; }
+    .hero { padding: 48px 0; }
+    .hero .wrap { grid-template-columns: 1fr; text-align: center; gap: 24px; }
+    .avatar { width: 120px; height: 120px; font-size: 2.4rem; margin: 0 auto; }
+    .hero p.pitch { margin-left: auto; margin-right: auto; }
+    .actions { justify-content: center; }
+    .grid3, .ai-grid { grid-template-columns: 1fr; }
+    .links { gap: 14px; }
+  }
+  @media print { nav, .toggle, .social { display: none; } .js .reveal { opacity: 1; transform: none; } section { padding: 24px 0; } }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top">YS</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">&#9790;</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <!-- Replace the initials with <img src="photo.jpg" alt="Yennam Swapna"> to use a photo -->
+    <div class="avatar" aria-hidden="true">YS</div>
+    <div>
+      <h1>Yennam Swapna</h1>
+      <div class="role">Data Analyst / Software Developer</div>
+      <p class="pitch">I turn business requirements into working systems, from application development and Oracle databases to AI-assisted workflows with Claude Code.</p>
+      <div class="actions">
+        <a class="btn primary" href="Swapna-resume.pdf" download>Download Resume (PDF)</a>
+        <a class="btn ghost" href="mailto:swapna2chinna@gmail.com">Email me</a>
+        <div class="social">
+          <!-- TODO: replace # with the LinkedIn profile URL -->
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.5-2.2 2.9V21H9z"/></svg></a>
+          <!-- TODO: replace # with the GitHub profile URL -->
+          <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.8 18.3 5.1 18.3 5.1c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="alt about" id="about">
+  <div class="wrap reveal">
+    <h2>About</h2>
+    <p>Experienced software developer dedicated to constantly improving tools and infrastructure to maximise productivity, minimise system downtime and respond quickly to the changing needs of the business. I hold an MS in Data Analytics and apply AI-assisted development with Claude Code &mdash; Skills, MCP integrations, agents and sub-agents, and hooks &mdash; to automate analysis and delivery work.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="reveal">Skills</h2>
+    <p class="lead reveal">AI-assisted development first, backed by full-lifecycle software and database experience.</p>
+
+    <div class="card featured reveal">
+      <span class="tag">Featured</span>
+      <h3>AI &ndash; Claude Code</h3>
+      <p>Building with Anthropic's agentic coding tool to automate development and analysis tasks.</p>
+      <div class="ai-grid">
+        <div class="ai-item"><b>Skills</b><span>Custom, reusable workflows packaged as instructions</span></div>
+        <div class="ai-item"><b>MCP</b><span>Model Context Protocol server integrations with external tools and data</span></div>
+        <div class="ai-item"><b>Agents &amp; Sub-agents</b><span>Delegating tasks and running parallel workflows</span></div>
+        <div class="ai-item"><b>Hooks</b><span>Automated actions before and after tool use</span></div>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="card reveal"><h3>Data Analytics</h3><p>MS in Data Analytics, Clark University (Great Learning).</p></div>
+      <div class="card reveal"><h3>Software Lifecycle</h3><p>Requirement gathering and analysis, feasibility study, design, coding, testing, deployment, maintenance.</p></div>
+      <div class="card reveal"><h3>Databases</h3><p>Oracle 10g administration, RMAN backup and recovery, export/import, user and security management.</p></div>
+      <div class="card reveal"><h3>Document Management</h3><p>Filero Studio: classes, archives, privileges, integrated search, Report Weaver.</p></div>
+      <div class="card reveal"><h3>Domain Expertise</h3><p>Housing and development.</p></div>
+      <div class="card reveal"><h3>Technical Recruitment</h3><p>Full-cycle IT recruiting, sourcing, screening and interview coordination.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="work">
+  <div class="wrap">
+    <h2 class="reveal">Selected Work</h2>
+    <p class="lead reveal">Case studies from client engagements.</p>
+    <div class="grid3">
+      <article class="card case reveal">
+        <h3>Application Development for NHDC</h3>
+        <div class="meta">Infini Tech Ltd &middot; Mauritius &middot; 2018&ndash;2019</div>
+        <h4>Context</h4>
+        <p>Freelance development engagement for NHDC, Mauritius.</p>
+        <h4>What I did</h4>
+        <ul>
+          <li>Examined existing IT systems, business models and processes</li>
+          <li>Analysed requirements and gathered information</li>
+          <li>Developed, unit-tested and deployed the application</li>
+        </ul>
+        <div class="chips"><span class="chip">Requirements analysis</span><span class="chip">Development</span><span class="chip">Deployment</span></div>
+      </article>
+      <article class="card case reveal">
+        <h3>Filero Document Management for HRDC</h3>
+        <div class="meta">Focus Technologies &middot; Mauritius &middot; 2010&ndash;2011</div>
+        <h4>Context</h4>
+        <p>DBA for the Filero document management system at HRDC, Mauritius.</p>
+        <h4>What I did</h4>
+        <ul>
+          <li>Coded in Filero Studio; created classes and archives</li>
+          <li>Managed users, privileges, security and access rights</li>
+          <li>Set up integrated search and built reports</li>
+        </ul>
+        <div class="chips"><span class="chip">Filero</span><span class="chip">Report Weaver</span><span class="chip">Access control</span></div>
+      </article>
+      <article class="card case reveal">
+        <h3>Oracle Database Administration</h3>
+        <div class="meta">Info Sage Systems &middot; Hyderabad &middot; 2009&ndash;2010</div>
+        <h4>Context</h4>
+        <p>Oracle DBA responsible for database setup, security and recovery.</p>
+        <h4>What I did</h4>
+        <ul>
+          <li>Installed the software and created databases</li>
+          <li>Managed tablespaces, datafiles, tables, indexes and views</li>
+          <li>Implemented backup and recovery with RMAN and export/import</li>
+        </ul>
+        <div class="chips"><span class="chip">Oracle 10g</span><span class="chip">RMAN</span><span class="chip">Backup &amp; recovery</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2 class="reveal">Experience</h2>
+    <p class="lead reveal">Newest first.</p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-head"><b>Freelance Software Developer</b><span class="tl-date">Sep 2018 &ndash; Dec 2019</span></div>
+        <div class="tl-org">Infini Tech Ltd &middot; NHDC, Mauritius</div>
+        <ul>
+          <li>Examined existing IT systems and business models; reviewed existing processes.</li>
+          <li>Analysed system requirements and gathered information.</li>
+          <li>Application development, unit testing and deployment.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head"><b>DBA on Filero</b><span class="tl-date">Oct 2010 &ndash; Jul 2011</span></div>
+        <div class="tl-org">Focus Technologies &middot; HRDC, Mauritius</div>
+        <ul>
+          <li>Coding in Filero Studio; created classes and archives.</li>
+          <li>Created users, assigned responsibilities and managed privileges.</li>
+          <li>Configured security settings, access rights and integrated search functions.</li>
+          <li>Performed backups and created reports using Report Weaver.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head"><b>Oracle Database Administrator</b><span class="tl-date">Aug 2009 &ndash; Sep 2010</span></div>
+        <div class="tl-org">Info Sage Systems &middot; Hyderabad, India</div>
+        <ul>
+          <li>Installed the software and was involved in database creation.</li>
+          <li>Managed tables, tablespaces, datafiles and objects (sequences, indexes, views).</li>
+          <li>Created users and managed privileges, permissions and responsibilities.</li>
+          <li>Implemented backup and recovery strategies with RMAN and logical export/import.</li>
+        </ul>
+      </div>
+
+      <details class="reveal">
+        <summary>Earlier: IT Recruitment (2003 &ndash; 2009)</summary>
+        <div class="tl-item">
+          <div class="tl-head"><b>Senior IT Recruiter</b><span class="tl-date">Aug 2008 &ndash; May 2009</span></div>
+          <div class="tl-org">Suhan Enterprises &middot; Secunderabad, India</div>
+          <ul>
+            <li>Handled the complete recruitment life cycle: sourcing, shortlisting, candidate tracking, technical and HR interviews, reference checks and post-joining follow-up.</li>
+            <li>Recruited for all levels, from developers to project managers.</li>
+            <li>Sourced via personal network, internal database, job boards (Monster, Naukri, TimesJobs) and employee referrals.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head"><b>Senior IT Recruiter</b><span class="tl-date">Oct 2005 &ndash; Jul 2008</span></div>
+          <div class="tl-org">Iglily Solutions &middot; Hyderabad, India</div>
+          <ul>
+            <li>Handled the complete recruitment life cycle for developer to project-manager roles.</li>
+            <li>Evaluated requirements and screened profiles before submitting them to the technical panel.</li>
+            <li>Coordinated with the technical panel to schedule interviews and collect feedback.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head"><b>IT Recruiter</b><span class="tl-date">Aug 2003 &ndash; Jun 2005</span></div>
+          <div class="tl-org">Agneto Solutions &middot; Kolkata, India</div>
+          <ul>
+            <li>Sourced, interviewed and tested applicants for client openings.</li>
+            <li>Advertised requirements on Dice, Monster, Yahoo Jobs and industry-specific job boards.</li>
+            <li>Tracked submitted resumes and kept candidates updated on progress.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="alt edu" id="education">
+  <div class="wrap">
+    <h2 class="reveal" style="margin-bottom:24px">Education &amp; Certifications</h2>
+    <div class="grid3">
+      <div class="card reveal"><h3>MS in Data Analytics</h3><span>Clark University (Great Learning) &middot; Distance Education</span></div>
+      <div class="card reveal"><h3>B.Tech, Electrical &amp; Electronics Engineering</h3><span>J.N.T. University</span></div>
+      <div class="card reveal"><h3>Oracle 10g</h3><span>Certification</span></div>
+      <div class="card reveal"><h3>Intermediate (MPC)</h3><span>Board of Intermediate Education</span></div>
+      <div class="card reveal"><h3>SSC</h3><span>BPDAV</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <h2>Get in touch</h2>
+    <p class="lead">Open to Data Analyst and AI-assisted development roles.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:swapna2chinna@gmail.com">swapna2chinna@gmail.com</a>
+      <a class="btn ghost" href="Swapna-resume.pdf" download>Download Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 Yennam Swapna</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('themeToggle');
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      return t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function paint() { btn.innerHTML = isDark() ? '&#9728;' : '&#9790;'; }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.1 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
