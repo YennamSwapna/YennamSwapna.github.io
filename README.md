@@ -25,6 +25,6 @@ To preview locally, open `index.html` in any browser.
 
 ## Contact
 
-- LinkedIn: [swapna-yennam-53629b335](https://www.linkedin.com/in/swapna-yennam-53629b335)
+- LinkedIn: [swapna-bhoopathi-53629b335](https://www.linkedin.com/in/swapna-bhoopathi-53629b335)
 - GitHub: [@YennamSwapna](https://github.com/YennamSwapna)
 - Email: swapna2chinna@gmail.com
